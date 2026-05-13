@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "287871558568",
+    "project_id": "uav-gcs-pro-v4-aa",
+    "storage_bucket": "uav-gcs-pro-v4-aa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:287871558568:android:5e3fdbc7755bf52109739d",
+        "android_client_info": {
+          "package_name": "com.uavgcs.uav_gcs_pro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUtt_fjtRAfCV8CISyXcAB9p9t4i4QR18"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
