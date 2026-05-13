@@ -20,28 +20,28 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'YOUR_API_KEY',
-    appId: '1:YOUR_PROJECT_NUMBER:android:YOUR_HASH',
-    messagingSenderId: 'YOUR_PROJECT_NUMBER',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_PROJECT_ID.firebasestorage.app',
+    apiKey: 'AIzaSyDUtt_fjtRAfCV8CISyXcAB9p9t4i4QR18',
+    appId: '1:287871558568:android:5e3fdbc7755bf52109739d',
+    messagingSenderId: '287871558568',
+    projectId: 'uav-gcs-pro-v4-aa',
+    storageBucket: 'uav-gcs-pro-v4-aa.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'YOUR_IOS_API_KEY',
-    appId: '1:YOUR_PROJECT_NUMBER:ios:YOUR_IOS_HASH',
-    messagingSenderId: 'YOUR_PROJECT_NUMBER',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_PROJECT_ID.firebasestorage.app',
+    apiKey: 'AIzaSyDUtt_fjtRAfCV8CISyXcAB9p9t4i4QR18',
+    appId: '1:287871558568:ios:YOUR_IOS_APP_ID',
+    messagingSenderId: '287871558568',
+    projectId: 'uav-gcs-pro-v4-aa',
+    storageBucket: 'uav-gcs-pro-v4-aa.firebasestorage.app',
     iosBundleId: 'com.uavgcs.uav-gcs-pro',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'YOUR_IOS_API_KEY',
-    appId: '1:YOUR_PROJECT_NUMBER:ios:YOUR_IOS_HASH',
-    messagingSenderId: 'YOUR_PROJECT_NUMBER',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_PROJECT_ID.firebasestorage.app',
+    apiKey: 'AIzaSyDUtt_fjtRAfCV8CISyXcAB9p9t4i4QR18',
+    appId: '1:287871558568:ios:YOUR_IOS_APP_ID',
+    messagingSenderId: '287871558568',
+    projectId: 'uav-gcs-pro-v4-aa',
+    storageBucket: 'uav-gcs-pro-v4-aa.firebasestorage.app',
     iosBundleId: 'com.uavgcs.uav-gcs-pro',
   );
 }
