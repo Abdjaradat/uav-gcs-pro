@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: uav-gcs-backend
+    runtime: node
+    repo: https://github.com/Abdjaradat/uav-gcs-pro
+    branch: master
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: FIREBASE_PROJECT_ID
+        value: uav-gcs-pro
+      - key: FIREBASE_SERVICE_ACCOUNT_PATH
+        value: /etc/secrets/service-account.json
+    disk:
+      name: firebase-credentials
+      mountPath: /etc/secrets

@@ -5,13 +5,14 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'services/licensing_service.dart';
+import 'services/cloud_service.dart';
+import 'services/connectivity_service.dart';
 import 'screens/marketing_screen.dart';
 import 'screens/simulator_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Firebase
   try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
@@ -31,7 +32,14 @@ void main() async {
   await lic.init();
 
   runApp(
-    ChangeNotifierProvider.value(value: lic, child: const UavGcsApp()),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: lic),
+        Provider(create: (_) => CloudService()),
+        ChangeNotifierProvider(create: (_) => ConnectivityService()),
+      ],
+      child: const UavGcsApp(),
+    ),
   );
 }
 

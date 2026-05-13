@@ -46,4 +46,6 @@ app.*.map.json
 
 # Firebase sensitive config
 android/app/google-services.json
+backend/service-account.json
+backend/.env
 !SETUP.md
