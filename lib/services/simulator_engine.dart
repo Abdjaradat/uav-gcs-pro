@@ -44,7 +44,7 @@ class SimulatorEngine {
   final PIDCtrl hPid = PIDCtrl(4, 0.15, 1.0);
 
   final List<Map<String, double>> trail = [];
-  double mType = 0; // 0=none,1=orbit,2=figure8,3=spiral,4=grid
+  double mType = 0;
   double mStart = 0, mCX = 0, mCY = 0;
   double fTX = 0, fTY = 0, fTDir = 0;
 
@@ -73,18 +73,18 @@ class SimulatorEngine {
       }
     }
 
-    // Waypoint
+    // Waypoint (runs even during autoTakeoff - horizontal movement)
     if (S.mode == 'WAYPOINT' && S.wpNav && wps.isNotEmpty) {
       int idx = S.wpI;
       if (idx < wps.length) {
         var wp = wps[idx];
         double dx = wp.x - S.x, dy = wp.y - S.y, d = sqrt(dx * dx + dy * dy);
-        if (d < 8) {
+        if (d < 6) {
           wp.reached = true;
           S.wpI++;
           if (S.wpI >= wps.length) {
             S.wpNav = false;
-            S.mode = 'LOITER';
+            if (S.mode == 'WAYPOINT') S.mode = 'LOITER';
             S.wpI = 0;
           }
         } else {
@@ -159,17 +159,16 @@ class SimulatorEngine {
     if (S.alt > 0) trail.add({'x': S.x, 'y': S.y, 't': S.fT});
     if (trail.length > 1200) trail.removeAt(0);
 
-    // Auto takeoff (at END, after all mode blocks)
+    // Auto takeoff (at END - manages altitude only, doesn't change mode)
     if (autoTakeoff && S.armed) {
       if (S.alt < takeoffTarget - 2) {
-        S.tAlt = takeoffTarget;
         S.vz = 8;
         S.thr = 80;
-        S.mode = 'LOITER';
         S.alt = max(0.0, S.alt + S.vz * dt);
+        // DO NOT change S.mode - let WAYPOINT/GOTO navigation continue
       } else {
         autoTakeoff = false;
-        S.mode = takeoffMode;
+        // mode stays as-is (takeoffMode was already set before arm())
       }
     }
   }
